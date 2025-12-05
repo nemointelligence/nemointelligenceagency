@@ -20,11 +20,17 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-              <span className="text-primary-foreground font-heading font-bold text-xl">N</span>
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-primary via-accent to-primary flex items-center justify-center overflow-hidden shadow-lg shadow-primary/30 group-hover:shadow-primary/50 transition-shadow">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent animate-pulse-slow" />
+              <div className="absolute inset-[2px] rounded-[10px] bg-background/90 flex items-center justify-center">
+                <span className="font-heading font-black text-sm tracking-tight bg-gradient-to-br from-primary via-accent to-primary bg-clip-text text-transparent">
+                  N.I.A
+                </span>
+              </div>
+              <div className="absolute inset-0 rounded-xl border border-primary/50 group-hover:border-primary transition-colors" />
             </div>
-            <span className="font-heading font-semibold text-lg text-foreground group-hover:text-primary transition-colors">
+            <span className="font-heading font-semibold text-lg text-foreground group-hover:text-primary transition-colors hidden sm:block">
               Nemo
             </span>
           </Link>
