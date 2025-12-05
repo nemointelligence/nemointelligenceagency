@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
-import AIBrain from "./AIBrain";
+import FuturisticGlobe from "./FuturisticGlobe";
 
 const HeroSection = () => {
   return (
@@ -46,22 +46,28 @@ const HeroSection = () => {
               </Button>
             </div>
 
-            {/* Trust Indicators */}
+            {/* Stats indicators */}
             <div className="mt-12 pt-8 border-t border-border/50 animate-fade-in animation-delay-400">
-              <p className="text-sm text-muted-foreground mb-4">
-                Trusted by innovative companies
-              </p>
-              <div className="flex flex-wrap justify-center lg:justify-start gap-8 items-center opacity-60">
-                <span className="font-heading text-lg text-foreground">TechCorp</span>
-                <span className="font-heading text-lg text-foreground">InnovateLab</span>
-                <span className="font-heading text-lg text-foreground">FutureTech</span>
+              <div className="grid grid-cols-3 gap-4 text-center lg:text-left">
+                <div className="group">
+                  <div className="font-heading text-2xl md:text-3xl font-bold text-primary group-hover:scale-110 transition-transform">24/7</div>
+                  <div className="text-xs text-muted-foreground">AI Automation</div>
+                </div>
+                <div className="group">
+                  <div className="font-heading text-2xl md:text-3xl font-bold text-primary group-hover:scale-110 transition-transform">100%</div>
+                  <div className="text-xs text-muted-foreground">Custom Solutions</div>
+                </div>
+                <div className="group">
+                  <div className="font-heading text-2xl md:text-3xl font-bold text-primary group-hover:scale-110 transition-transform">∞</div>
+                  <div className="text-xs text-muted-foreground">Possibilities</div>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* AI Robot Visual */}
+          {/* Futuristic Globe Visual */}
           <div className="order-1 lg:order-2 animate-fade-in">
-            <AIBrain />
+            <FuturisticGlobe />
           </div>
         </div>
       </div>
