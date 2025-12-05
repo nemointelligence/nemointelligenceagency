@@ -27,7 +27,7 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Nemo Intelligent Agency | AI Automation Solutions</title>
+        <title>Nemo Intelligence Agency | AI Automation Solutions</title>
         <meta
           name="description"
           content="Transform your business with intelligent AI automation. Custom AI agents, workflow automation, and smart solutions that save time and boost productivity."
