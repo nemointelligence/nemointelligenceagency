@@ -20,17 +20,9 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="h-10 px-3 rounded-lg bg-gradient-to-br from-primary via-accent to-primary bg-[length:200%_200%] animate-gradient flex items-center justify-center gap-0.5">
-              {['N', '.', 'I', '.', 'A'].map((letter, index) => (
-                <span
-                  key={index}
-                  className="text-primary-foreground font-heading font-bold text-xl animate-wave"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  {letter}
-                </span>
-              ))}
+          <Link to="/" className="flex items-center gap-2 group">
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+              <span className="text-primary-foreground font-heading font-bold text-xl">N</span>
             </div>
             <span className="font-heading font-semibold text-lg text-foreground group-hover:text-primary transition-colors">
               Nemo
