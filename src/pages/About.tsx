@@ -42,7 +42,7 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>About Us | Nemo Intelligent Agency</title>
+        <title>About Us | Nemo Intelligence Agency</title>
         <meta
           name="description"
           content="Learn about Nemo Intelligent Agency - your partner in AI automation. We help businesses grow with intelligent automation solutions."
@@ -58,13 +58,12 @@ const About = () => {
                 About Us
               </div>
               <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 animate-fade-in animation-delay-100">
-                Pioneering the Future of{" "}
-                <span className="gradient-text">Business Automation</span>
+                Pioneering the Future of <span className="gradient-text">Business Automation</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground animate-fade-in animation-delay-200">
-                At Nemo Intelligent Agency, we believe that intelligent automation is the key to
-                unlocking unprecedented business growth. Our mission is to empower organizations
-                with AI solutions that save time, reduce costs, and drive innovation.
+                At Nemo Intelligence Agency, we believe that intelligent automation is the key to unlocking
+                unprecedented business growth. Our mission is to empower organizations with AI solutions that save time,
+                reduce costs, and drive innovation.
               </p>
             </div>
           </div>
@@ -79,14 +78,15 @@ const About = () => {
                   Our <span className="gradient-text">Mission</span>
                 </h2>
                 <p className="text-muted-foreground text-lg mb-6">
-                  We're dedicated to transforming how businesses operate by implementing smart,
-                  scalable AI automation solutions. Our team of experts combines deep technical
-                  knowledge with business acumen to deliver solutions that make a real impact.
+                  We are dedicated to transforming how businesses operate by implementing smart, scalable AI automation
+                  solutions. Our team blends deep technical expertise with strong business insight to create automation
+                  that truly makes an impact. From startups to large enterprises, we partner with organizations that are
+                  ready to embrace the future of work. Our approach is collaborative, transparent, and focused on
+                  delivering measurable improvements that help your business grow and operate more efficiently.
                 </p>
                 <p className="text-muted-foreground text-lg">
-                  From startups to enterprises, we partner with organizations ready to embrace
-                  the future of work. Our approach is collaborative, transparent, and focused
-                  on delivering measurable results.
+                  From startups to enterprises, we partner with organizations ready to embrace the future of work. Our
+                  approach is collaborative, transparent, and focused on delivering measurable results.
                 </p>
               </div>
               <div className="glass-card p-8 lg:p-12">
@@ -146,9 +146,7 @@ const About = () => {
                   <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6 hover:bg-primary/20 transition-colors">
                     <item.icon className="w-10 h-10 text-primary" />
                   </div>
-                  <h3 className="font-heading text-xl font-semibold text-foreground mb-3">
-                    {item.title}
-                  </h3>
+                  <h3 className="font-heading text-xl font-semibold text-foreground mb-3">{item.title}</h3>
                   <p className="text-muted-foreground">{item.description}</p>
                 </div>
               ))}
@@ -163,9 +161,7 @@ const About = () => {
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
                 Our <span className="gradient-text">Values</span>
               </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                The principles that guide everything we do.
-              </p>
+              <p className="text-muted-foreground max-w-2xl mx-auto">The principles that guide everything we do.</p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
@@ -178,9 +174,7 @@ const About = () => {
                   <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-6">
                     <value.icon className="w-7 h-7 text-accent" />
                   </div>
-                  <h3 className="font-heading text-xl font-semibold text-foreground mb-3">
-                    {value.title}
-                  </h3>
+                  <h3 className="font-heading text-xl font-semibold text-foreground mb-3">{value.title}</h3>
                   <p className="text-muted-foreground">{value.description}</p>
                 </div>
               ))}
