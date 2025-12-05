@@ -20,9 +20,12 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-              <span className="text-primary-foreground font-heading font-bold text-xl">N</span>
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary via-accent to-primary flex items-center justify-center overflow-hidden relative">
+              <span className="text-primary-foreground font-heading font-bold text-lg tracking-tight animate-logo-scale">
+                N.I.A
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-logo-shine" />
             </div>
             <span className="font-heading font-semibold text-lg text-foreground group-hover:text-primary transition-colors">
               Nemo

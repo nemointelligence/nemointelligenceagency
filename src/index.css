@@ -212,3 +212,29 @@
     scale: 0.3;
   }
 }
+
+@keyframes logo-scale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+@keyframes logo-shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-logo-scale {
+  animation: logo-scale 0.6s ease-in-out 2;
+}
+
+.animate-logo-shine {
+  animation: logo-shine 1.2s ease-in-out 2;
+}
