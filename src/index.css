@@ -124,6 +124,31 @@
   .animate-shoot-out {
     animation: shoot-out 4s ease-out infinite;
   }
+
+  .typewriter-logo {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typewriter 2s steps(5) forwards, blink-caret 0.75s step-end infinite;
+    border-right: 2px solid hsl(var(--primary-foreground));
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: hsl(var(--primary-foreground));
+  }
 }
 
 @keyframes pulse-slow {
