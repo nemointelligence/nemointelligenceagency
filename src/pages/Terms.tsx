@@ -5,10 +5,10 @@ const Terms = () => {
   return (
     <>
       <Helmet>
-        <title>Terms & Conditions | Nemo Intelligent Agency</title>
+        <title>Terms & Conditions | Nemo Intelligence Agency</title>
         <meta
           name="description"
-          content="Terms and Conditions for Nemo Intelligent Agency. Review our terms of service and usage policies."
+          content="Terms and Conditions for Nemo Intelligence Agency. Review our terms of service and usage policies."
         />
       </Helmet>
       <Layout>
@@ -27,7 +27,7 @@ const Terms = () => {
                   Acceptance of Terms
                 </h2>
                 <p className="text-muted-foreground mb-4">
-                  By accessing and using the Nemo Intelligent Agency website and services, you
+                  By accessing and using the Nemo Intelligence Agency website and services, you
                   accept and agree to be bound by these Terms and Conditions. If you do not agree
                   to these terms, please do not use our services.
                 </p>
@@ -36,7 +36,7 @@ const Terms = () => {
                   Services
                 </h2>
                 <p className="text-muted-foreground mb-4">
-                  Nemo Intelligent Agency provides AI automation consulting and implementation
+                  Nemo Intelligence Agency provides AI automation consulting and implementation
                   services. The specific scope, deliverables, and terms of each project will be
                   defined in separate service agreements.
                 </p>
@@ -46,7 +46,7 @@ const Terms = () => {
                 </h2>
                 <p className="text-muted-foreground mb-4">
                   All content on this website, including text, graphics, logos, and software, is
-                  the property of Nemo Intelligent Agency and is protected by intellectual
+                  the property of Nemo Intelligence Agency and is protected by intellectual
                   property laws.
                 </p>
 
@@ -54,7 +54,7 @@ const Terms = () => {
                   Limitation of Liability
                 </h2>
                 <p className="text-muted-foreground mb-4">
-                  Nemo Intelligent Agency shall not be liable for any indirect, incidental,
+                  Nemo Intelligence Agency shall not be liable for any indirect, incidental,
                   special, consequential, or punitive damages resulting from your use of our
                   services.
                 </p>

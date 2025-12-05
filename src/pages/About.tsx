@@ -45,7 +45,7 @@ const About = () => {
         <title>About Us | Nemo Intelligence Agency</title>
         <meta
           name="description"
-          content="Learn about Nemo Intelligent Agency - your partner in AI automation. We help businesses grow with intelligent automation solutions."
+          content="Learn about Nemo Intelligence Agency - your partner in AI automation. We help businesses grow with intelligent automation solutions."
         />
       </Helmet>
       <Layout>

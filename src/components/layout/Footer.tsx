@@ -31,7 +31,7 @@ const Footer = () => {
                 <span className="text-primary-foreground font-heading font-bold text-xl">N</span>
               </div>
               <span className="font-heading font-semibold text-lg text-foreground">
-                Nemo Intelligent
+                Nemo Intelligence
               </span>
             </Link>
             <p className="text-sm text-muted-foreground">
@@ -139,7 +139,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Nemo Intelligent Agency. All rights reserved.
+            © {new Date().getFullYear()} Nemo Intelligence Agency. All rights reserved.
           </p>
           <div className="flex gap-6">
             <Link

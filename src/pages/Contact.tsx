@@ -88,10 +88,10 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Us | Nemo Intelligent Agency</title>
+        <title>Contact Us | Nemo Intelligence Agency</title>
         <meta
           name="description"
-          content="Get in touch with Nemo Intelligent Agency. Let's discuss how AI automation can transform your business. Request a demo or consultation today."
+          content="Get in touch with Nemo Intelligence Agency. Let's discuss how AI automation can transform your business. Request a demo or consultation today."
         />
       </Helmet>
       <Layout>

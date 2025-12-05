@@ -61,7 +61,7 @@ const Services = () => {
   return (
     <>
       <Helmet>
-        <title>Services | Nemo Intelligent Agency</title>
+        <title>Services | Nemo Intelligence Agency</title>
         <meta
           name="description"
           content="Explore our AI automation services including custom AI agents, workflow automation, email automation, CRM automations, AI chatbots, and social media automation."

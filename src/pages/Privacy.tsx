@@ -5,10 +5,10 @@ const Privacy = () => {
   return (
     <>
       <Helmet>
-        <title>Privacy Policy | Nemo Intelligent Agency</title>
+        <title>Privacy Policy | Nemo Intelligence Agency</title>
         <meta
           name="description"
-          content="Privacy Policy for Nemo Intelligent Agency. Learn how we collect, use, and protect your personal information."
+          content="Privacy Policy for Nemo Intelligence Agency. Learn how we collect, use, and protect your personal information."
         />
       </Helmet>
       <Layout>
