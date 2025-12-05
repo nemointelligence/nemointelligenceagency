@@ -1,26 +1,20 @@
-import { useEffect, useRef } from "react";
+import { Brain } from "lucide-react";
 
 const FuturisticGlobe = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const handleScroll = () => {
-      const rect = container.getBoundingClientRect();
-      const scrollProgress = Math.max(0, Math.min(1, 1 - rect.top / window.innerHeight));
-      container.style.setProperty('--scroll-progress', scrollProgress.toString());
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  // Define shooting brain positions and directions
+  const shootingBrains = [
+    { angle: 0, delay: 0 },
+    { angle: 45, delay: 0.8 },
+    { angle: 90, delay: 1.6 },
+    { angle: 135, delay: 2.4 },
+    { angle: 180, delay: 3.2 },
+    { angle: 225, delay: 4 },
+    { angle: 270, delay: 4.8 },
+    { angle: 315, delay: 5.6 },
+  ];
 
   return (
-    <div ref={containerRef} className="relative w-full aspect-square max-w-lg mx-auto">
+    <div className="relative w-full aspect-square max-w-lg mx-auto">
       {/* Outer glow ring */}
       <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 blur-3xl animate-pulse-slow" />
       
@@ -31,6 +25,36 @@ const FuturisticGlobe = () => {
         <div className="absolute inset-8 rounded-full border border-accent/20 animate-spin" style={{ animationDuration: '15s', animationDirection: 'reverse' }} />
         <div className="absolute inset-12 rounded-full border border-primary/40 animate-spin" style={{ animationDuration: '25s' }} />
         
+        {/* Shooting AI Brains */}
+        {shootingBrains.map((brain, i) => (
+          <div
+            key={`shooting-brain-${i}`}
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+            style={{
+              transform: `translate(-50%, -50%) rotate(${brain.angle}deg)`,
+            }}
+          >
+            <div
+              className="animate-shoot-out"
+              style={{
+                animationDelay: `${brain.delay}s`,
+                animationDuration: '4s',
+                animationIterationCount: 'infinite',
+              }}
+            >
+              <div
+                style={{
+                  transform: `rotate(-${brain.angle}deg)`,
+                }}
+              >
+                <Brain 
+                  className="w-5 h-5 text-primary drop-shadow-[0_0_8px_hsl(var(--primary))]" 
+                />
+              </div>
+            </div>
+          </div>
+        ))}
+
         {/* Main globe */}
         <svg
           viewBox="0 0 400 400"
@@ -53,11 +77,6 @@ const FuturisticGlobe = () => {
                 <feMergeNode in="SourceGraphic" />
               </feMerge>
             </filter>
-
-            {/* Grid pattern */}
-            <pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.5" strokeOpacity="0.3" />
-            </pattern>
           </defs>
 
           {/* Globe sphere */}
@@ -142,22 +161,10 @@ const FuturisticGlobe = () => {
           </g>
         </svg>
 
-        {/* Floating particles */}
-        {[...Array(8)].map((_, i) => (
-          <div
-            key={`particle-${i}`}
-            className="absolute w-1 h-1 rounded-full bg-primary animate-float"
-            style={{
-              top: `${20 + Math.random() * 60}%`,
-              left: `${20 + Math.random() * 60}%`,
-              animationDelay: `${i * 0.5}s`,
-              animationDuration: `${3 + Math.random() * 2}s`,
-            }}
-          />
-        ))}
-
-        {/* Center core */}
-        <div className="absolute w-4 h-4 rounded-full bg-primary/80 animate-pulse shadow-[0_0_30px_hsl(var(--primary))]" />
+        {/* Center core with brain */}
+        <div className="absolute w-10 h-10 rounded-full bg-primary/20 animate-pulse shadow-[0_0_40px_hsl(var(--primary))] flex items-center justify-center">
+          <Brain className="w-5 h-5 text-primary" />
+        </div>
       </div>
 
       {/* Bottom reflection */}

@@ -120,6 +120,10 @@
   .animate-neural {
     animation: neural-flicker 2s ease-in-out infinite;
   }
+
+  .animate-shoot-out {
+    animation: shoot-out 4s ease-out infinite;
+  }
 }
 
 @keyframes pulse-slow {
@@ -187,4 +191,24 @@
 
 .animation-delay-400 {
   animation-delay: 400ms;
+}
+
+@keyframes shoot-out {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+    scale: 0.5;
+  }
+  10% {
+    opacity: 1;
+    scale: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(180px);
+    opacity: 0;
+    scale: 0.3;
+  }
 }
