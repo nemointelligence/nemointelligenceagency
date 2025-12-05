@@ -30,22 +30,50 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission - in production, this would call the edge function
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const response = await fetch(
+        "https://nemointelligenceagency.app.n8n.cloud/webhook/2008040c-9f44-4fb6-bc8a-e3d28832a99f",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            businessName: formData.businessName,
+            budget: formData.budget,
+            message: formData.message,
+          }),
+        }
+      );
 
-    toast({
-      title: "Message Sent!",
-      description: "Your message has been sent. We'll get back to you shortly.",
-    });
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
 
-    setFormData({
-      name: "",
-      email: "",
-      businessName: "",
-      budget: "",
-      message: "",
-    });
-    setIsSubmitting(false);
+      toast({
+        title: "Message Sent!",
+        description: "Your message has been sent. We'll get back to you shortly.",
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        businessName: "",
+        budget: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
