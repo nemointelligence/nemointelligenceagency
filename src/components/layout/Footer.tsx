@@ -26,13 +26,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand */}
           <div className="space-y-4">
-            <Link to="/" className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <span className="text-primary-foreground font-heading font-bold text-xl">N</span>
+            <Link to="/" className="block">
+              <div className="w-12 h-12 rounded-lg bg-black border-2 border-primary flex items-center justify-center overflow-hidden relative shadow-[0_0_15px_hsl(var(--primary)/0.6),0_0_30px_hsl(var(--primary)/0.4)] animate-logo-glow transition-transform duration-200 hover:scale-110">
+                <span className="text-white font-heading font-bold text-lg tracking-tight">
+                  N.I.A
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/20 to-transparent animate-logo-shine" />
               </div>
-              <span className="font-heading font-semibold text-lg text-foreground">
-                Nemo Intelligence
-              </span>
             </Link>
             <p className="text-sm text-muted-foreground">
               Empowering businesses with intelligent AI automation solutions that drive growth and efficiency.
