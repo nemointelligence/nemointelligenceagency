@@ -21,7 +21,7 @@ const Chatbot = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
-  const WEBHOOK_URL = "https://n-i-a.app.n8n.cloud/workflow/mMjPkGCNidUVSKFp";
+  const WEBHOOK_URL = "https://n-i-a.app.n8n.cloud/webhook/mMjPkGCNidUVSKFp";
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -32,6 +32,14 @@ const Chatbot = () => {
   const initializeSession = async () => {
     if (sessionStarted) return;
     
+    setSessionStarted(true);
+    setMessages([{
+      id: "welcome",
+      content: "Hello! I'm Nemo, your AI assistant. How can I help you today?",
+      role: "assistant",
+      timestamp: new Date()
+    }]);
+
     try {
       await fetch(WEBHOOK_URL, {
         method: "POST",
@@ -41,13 +49,6 @@ const Chatbot = () => {
           timestamp: new Date().toISOString()
         }),
       });
-      setSessionStarted(true);
-      setMessages([{
-        id: "welcome",
-        content: "Hello! Welcome to N.I.A. How can I help you today?",
-        role: "assistant",
-        timestamp: new Date()
-      }]);
     } catch (error) {
       console.error("Failed to initialize chat session:", error);
     }
@@ -131,11 +132,11 @@ const Chatbot = () => {
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b border-border bg-primary/10">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-black border-2 border-primary flex items-center justify-center shadow-[0_0_15px_hsl(var(--primary)/0.6)]">
-                <span className="text-white font-bold text-xs">N.I.A</span>
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center shadow-[0_0_15px_hsl(var(--primary)/0.6)]">
+                <span className="text-primary-foreground font-bold text-sm">🐠</span>
               </div>
               <div>
-                <h3 className="font-semibold text-foreground">N.I.A Assistant</h3>
+                <h3 className="font-semibold text-foreground">Nemo</h3>
                 <p className="text-xs text-muted-foreground">Online</p>
               </div>
             </div>
