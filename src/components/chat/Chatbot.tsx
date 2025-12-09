@@ -21,7 +21,7 @@ const Chatbot = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
-  const WEBHOOK_URL = "https://n-i-a.app.n8n.cloud/webhook/mMjPkGCNidUVSKFp";
+  const WEBHOOK_URL = "https://n-i-a.app.n8n.cloud/workflow/mMjPkGCNidUVSKFp";
 
   useEffect(() => {
     if (scrollRef.current) {
