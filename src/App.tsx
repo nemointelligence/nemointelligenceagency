@@ -10,7 +10,9 @@ import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import Schedule from "./pages/Schedule";
 import NotFound from "./pages/NotFound";
+import Chatbot from "./components/chat/Chatbot";
 
 const queryClient = new QueryClient();
 
@@ -28,8 +30,10 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
+            <Route path="/schedule" element={<Schedule />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <Chatbot />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
