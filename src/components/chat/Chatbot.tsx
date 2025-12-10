@@ -86,7 +86,7 @@ const Chatbot = () => {
         body: JSON.stringify({
           type: "message",
           sessionId: sessionId,
-          message: userMessage.content,
+          chatInput: userMessage.content,
           timestamp: new Date().toISOString(),
         }),
       });
