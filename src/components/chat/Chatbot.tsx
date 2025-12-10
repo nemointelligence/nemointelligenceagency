@@ -26,7 +26,7 @@ const Chatbot = () => {
 
   useEffect(() => {
     if (scrollRef.current) {
-      const scrollArea = scrollRef.current.querySelector('[data-radix-scroll-area-viewport]');
+      const scrollArea = scrollRef.current.querySelector("[data-radix-scroll-area-viewport]");
       if (scrollArea) {
         scrollArea.scrollTop = scrollArea.scrollHeight;
       }
@@ -95,11 +95,16 @@ const Chatbot = () => {
       });
 
       let responseText = "Thank you for your message. Our team will get back to you shortly!";
-      
+
       try {
         const data = await response.json();
         // Handle different response formats from n8n
-        responseText = data.output || data.text || data.message || data.response || (typeof data === 'string' ? data : JSON.stringify(data));
+        responseText =
+          data.output ||
+          data.text ||
+          data.message ||
+          data.response ||
+          (typeof data === "string" ? data : JSON.stringify(data));
       } catch {
         // If not JSON, use raw text
         responseText = await response.text();
@@ -149,9 +154,6 @@ const Chatbot = () => {
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b border-border bg-primary/10">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center shadow-[0_0_15px_hsl(var(--primary)/0.6)]">
-                <span className="text-primary-foreground font-bold text-sm">🐠</span>
-              </div>
               <div>
                 <h3 className="font-semibold text-foreground">Nemo</h3>
                 <p className="text-xs text-muted-foreground">Online</p>
@@ -165,28 +167,28 @@ const Chatbot = () => {
           {/* Messages */}
           <div ref={scrollRef} className="flex-1 overflow-hidden">
             <ScrollArea className="h-full p-4">
-            <div className="space-y-4">
-              {messages.map((message) => (
-                <div key={message.id} className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}>
-                  <div
-                    className={`max-w-[80%] rounded-2xl px-4 py-2 ${
-                      message.role === "user"
-                        ? "bg-primary text-primary-foreground rounded-br-md"
-                        : "bg-muted text-foreground rounded-bl-md"
-                    }`}
-                  >
-                    <p className="text-sm">{message.content}</p>
+              <div className="space-y-4">
+                {messages.map((message) => (
+                  <div key={message.id} className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}>
+                    <div
+                      className={`max-w-[80%] rounded-2xl px-4 py-2 ${
+                        message.role === "user"
+                          ? "bg-primary text-primary-foreground rounded-br-md"
+                          : "bg-muted text-foreground rounded-bl-md"
+                      }`}
+                    >
+                      <p className="text-sm">{message.content}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
-              {isLoading && (
-                <div className="flex justify-start">
-                  <div className="bg-muted rounded-2xl rounded-bl-md px-4 py-3">
-                    <Loader2 className="w-5 h-5 animate-spin text-muted-foreground" />
+                ))}
+                {isLoading && (
+                  <div className="flex justify-start">
+                    <div className="bg-muted rounded-2xl rounded-bl-md px-4 py-3">
+                      <Loader2 className="w-5 h-5 animate-spin text-muted-foreground" />
+                    </div>
                   </div>
-                </div>
-              )}
-            </div>
+                )}
+              </div>
             </ScrollArea>
           </div>
 
