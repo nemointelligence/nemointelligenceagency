@@ -26,9 +26,12 @@ const Chatbot = () => {
 
   useEffect(() => {
     if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+      const scrollArea = scrollRef.current.querySelector('[data-radix-scroll-area-viewport]');
+      if (scrollArea) {
+        scrollArea.scrollTop = scrollArea.scrollHeight;
+      }
     }
-  }, [messages]);
+  }, [messages, isLoading]);
 
   const initializeSession = async () => {
     if (sessionStarted) return;
@@ -160,7 +163,8 @@ const Chatbot = () => {
           </div>
 
           {/* Messages */}
-          <ScrollArea className="flex-1 p-4" ref={scrollRef}>
+          <div ref={scrollRef} className="flex-1 overflow-hidden">
+            <ScrollArea className="h-full p-4">
             <div className="space-y-4">
               {messages.map((message) => (
                 <div key={message.id} className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}>
@@ -183,7 +187,8 @@ const Chatbot = () => {
                 </div>
               )}
             </div>
-          </ScrollArea>
+            </ScrollArea>
+          </div>
 
           {/* Input */}
           <div className="p-4 border-t border-border bg-background/50">
