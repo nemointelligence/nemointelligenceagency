@@ -91,11 +91,20 @@ const Chatbot = () => {
         }),
       });
 
-      const data = await response.text();
+      let responseText = "Thank you for your message. Our team will get back to you shortly!";
+      
+      try {
+        const data = await response.json();
+        // Handle different response formats from n8n
+        responseText = data.output || data.text || data.message || data.response || (typeof data === 'string' ? data : JSON.stringify(data));
+      } catch {
+        // If not JSON, use raw text
+        responseText = await response.text();
+      }
 
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
-        content: data || "Thank you for your message. Our team will get back to you shortly!",
+        content: responseText,
         role: "assistant",
         timestamp: new Date(),
       };
