@@ -21,7 +21,7 @@ const Chatbot = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
-  const WEBHOOK_URL = "https://n-i-a.app.n8n.cloud/webhook/mMjPkGCNidUVSKFp";
+  const WEBHOOK_URL = "https://n-i-a.app.n8n.cloud/webhook/8f61c22c-0a61-4153-99e6-8f11c336c70d/chat";
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -31,22 +31,24 @@ const Chatbot = () => {
 
   const initializeSession = async () => {
     if (sessionStarted) return;
-    
+
     setSessionStarted(true);
-    setMessages([{
-      id: "welcome",
-      content: "Hello! I'm Nemo, your AI assistant. How can I help you today?",
-      role: "assistant",
-      timestamp: new Date()
-    }]);
+    setMessages([
+      {
+        id: "welcome",
+        content: "Hello! I'm Nemo, your AI assistant. How can I help you today?",
+        role: "assistant",
+        timestamp: new Date(),
+      },
+    ]);
 
     try {
       await fetch(WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
           type: "session_start",
-          timestamp: new Date().toISOString()
+          timestamp: new Date().toISOString(),
         }),
       });
     } catch (error) {
@@ -68,10 +70,10 @@ const Chatbot = () => {
       id: Date.now().toString(),
       content: input.trim(),
       role: "user",
-      timestamp: new Date()
+      timestamp: new Date(),
     };
 
-    setMessages(prev => [...prev, userMessage]);
+    setMessages((prev) => [...prev, userMessage]);
     setInput("");
     setIsLoading(true);
 
@@ -82,26 +84,26 @@ const Chatbot = () => {
         body: JSON.stringify({
           type: "message",
           message: userMessage.content,
-          timestamp: new Date().toISOString()
+          timestamp: new Date().toISOString(),
         }),
       });
 
       const data = await response.text();
-      
+
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
         content: data || "Thank you for your message. Our team will get back to you shortly!",
         role: "assistant",
-        timestamp: new Date()
+        timestamp: new Date(),
       };
 
-      setMessages(prev => [...prev, assistantMessage]);
+      setMessages((prev) => [...prev, assistantMessage]);
     } catch (error) {
       console.error("Failed to send message:", error);
       toast({
         title: "Error",
         description: "Failed to send message. Please try again.",
-        variant: "destructive"
+        variant: "destructive",
       });
     } finally {
       setIsLoading(false);
@@ -140,12 +142,7 @@ const Chatbot = () => {
                 <p className="text-xs text-muted-foreground">Online</p>
               </div>
             </div>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsOpen(false)}
-              className="hover:bg-destructive/20"
-            >
+            <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)} className="hover:bg-destructive/20">
               <X className="w-5 h-5" />
             </Button>
           </div>
@@ -154,10 +151,7 @@ const Chatbot = () => {
           <ScrollArea className="flex-1 p-4" ref={scrollRef}>
             <div className="space-y-4">
               {messages.map((message) => (
-                <div
-                  key={message.id}
-                  className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
-                >
+                <div key={message.id} className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}>
                   <div
                     className={`max-w-[80%] rounded-2xl px-4 py-2 ${
                       message.role === "user"
@@ -190,12 +184,7 @@ const Chatbot = () => {
                 className="flex-1 bg-muted/50 border-border"
                 disabled={isLoading}
               />
-              <Button
-                onClick={sendMessage}
-                disabled={!input.trim() || isLoading}
-                size="icon"
-                className="shrink-0"
-              >
+              <Button onClick={sendMessage} disabled={!input.trim() || isLoading} size="icon" className="shrink-0">
                 <Send className="w-4 h-4" />
               </Button>
             </div>
