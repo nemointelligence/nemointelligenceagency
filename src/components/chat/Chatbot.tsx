@@ -18,6 +18,7 @@ const Chatbot = () => {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [sessionStarted, setSessionStarted] = useState(false);
+  const [sessionId] = useState(() => `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`);
   const scrollRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
@@ -48,6 +49,7 @@ const Chatbot = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           type: "session_start",
+          sessionId: sessionId,
           timestamp: new Date().toISOString(),
         }),
       });
@@ -83,6 +85,7 @@ const Chatbot = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           type: "message",
+          sessionId: sessionId,
           message: userMessage.content,
           timestamp: new Date().toISOString(),
         }),
