@@ -64,7 +64,7 @@ const Terms = () => {
                 </h2>
                 <p className="text-muted-foreground mb-4">
                   If you have any questions about these Terms & Conditions, please contact us at
-                  contact@nemointelligent.com.
+                  nia@nemointel.com.
                 </p>
               </div>
             </div>
