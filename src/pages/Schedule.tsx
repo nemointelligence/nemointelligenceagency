@@ -20,24 +20,16 @@ const Schedule = () => {
     company: "",
     preferredDate: "",
     preferredTime: "",
-    projectDescription: ""
+    projectDescription: "",
   });
 
   const WEBHOOK_URL = "https://n-i-a.app.n8n.cloud/form/a9901ca9-87da-4c35-9594-3b8c1445668e";
 
-  const timeSlots = [
-    "9:00 AM",
-    "10:00 AM",
-    "11:00 AM",
-    "1:00 PM",
-    "2:00 PM",
-    "3:00 PM",
-    "4:00 PM"
-  ];
+  const timeSlots = ["9:00 AM", "10:00 AM", "11:00 AM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM"];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -71,7 +63,7 @@ const Schedule = () => {
       toast({
         title: "Submission Failed",
         description: "Please try again or contact us directly.",
-        variant: "destructive"
+        variant: "destructive",
       });
     } finally {
       setIsSubmitting(false);
@@ -91,9 +83,10 @@ const Schedule = () => {
             </div>
             <h1 className="text-3xl font-bold text-foreground">Thank You!</h1>
             <p className="text-muted-foreground">
-              Your free consultation request has been submitted. Our team will contact you within 24 hours to confirm your appointment.
+              Your free consultation request has been submitted. Our team will contact you within 24 hours to confirm
+              your appointment.
             </p>
-            <Button onClick={() => window.location.href = "/"} variant="outline">
+            <Button onClick={() => (window.location.href = "/")} variant="outline">
               Return Home
             </Button>
           </div>
@@ -106,7 +99,10 @@ const Schedule = () => {
     <Layout>
       <Helmet>
         <title>Schedule Free Consultation | N.I.A</title>
-        <meta name="description" content="Book your free consultation with N.I.A for premium AI solutions and digital services." />
+        <meta
+          name="description"
+          content="Book your free consultation with N.I.A for premium AI solutions and digital services."
+        />
       </Helmet>
 
       <section className="pt-32 pb-20 px-4">
@@ -120,9 +116,6 @@ const Schedule = () => {
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
               Schedule Your <span className="text-primary">Free Session</span>
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              As a premium client, you qualify for a complimentary 30-minute consultation to discuss your project vision and explore solutions.
-            </p>
           </div>
 
           {/* Form */}
@@ -212,7 +205,7 @@ const Schedule = () => {
                     onChange={handleChange}
                     required
                     className="bg-muted/50"
-                    min={new Date().toISOString().split('T')[0]}
+                    min={new Date().toISOString().split("T")[0]}
                   />
                 </div>
 
@@ -224,7 +217,7 @@ const Schedule = () => {
                   </Label>
                   <Select
                     value={formData.preferredTime}
-                    onValueChange={(value) => setFormData(prev => ({ ...prev, preferredTime: value }))}
+                    onValueChange={(value) => setFormData((prev) => ({ ...prev, preferredTime: value }))}
                     required
                   >
                     <SelectTrigger className="bg-muted/50">
@@ -258,17 +251,13 @@ const Schedule = () => {
                 />
               </div>
 
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full py-6 text-lg"
-                variant="hero"
-              >
+              <Button type="submit" disabled={isSubmitting} className="w-full py-6 text-lg" variant="hero">
                 {isSubmitting ? "Scheduling..." : "Request Free Consultation"}
               </Button>
 
               <p className="text-center text-sm text-muted-foreground">
-                By scheduling, you agree to our terms of service. This consultation is completely free with no obligations.
+                By scheduling, you agree to our terms of service. This consultation is completely free with no
+                obligations.
               </p>
             </form>
           </div>
