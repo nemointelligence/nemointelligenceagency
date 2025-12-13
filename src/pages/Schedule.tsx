@@ -23,7 +23,7 @@ const Schedule = () => {
     projectDescription: ""
   });
 
-  const WEBHOOK_URL = "https://n-i-a.app.n8n.cloud/webhook/URLRZfGECMT04UtG";
+  const WEBHOOK_URL = "https://n-i-a.app.n8n.cloud/form/a9901ca9-87da-4c35-9594-3b8c1445668e";
 
   const timeSlots = [
     "9:00 AM",
