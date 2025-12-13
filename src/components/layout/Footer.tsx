@@ -66,7 +66,7 @@ const Footer = () => {
                 <Instagram size={20} />
               </a>
               <a
-                href="mailto:contact@nemointelligent.com"
+                href="mailto:nia@nemointel.com"
                 className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="Email"
               >
