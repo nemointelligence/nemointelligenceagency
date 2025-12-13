@@ -45,14 +45,20 @@ const Schedule = () => {
     setIsSubmitting(true);
 
     try {
+      const formDataToSend = new FormData();
+      formDataToSend.append("name", formData.name);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("phone", formData.phone);
+      formDataToSend.append("company", formData.company);
+      formDataToSend.append("preferredDate", formData.preferredDate);
+      formDataToSend.append("preferredTime", formData.preferredTime);
+      formDataToSend.append("projectDescription", formData.projectDescription);
+      formDataToSend.append("submittedAt", new Date().toISOString());
+      formDataToSend.append("type", "consultation_request");
+
       await fetch(WEBHOOK_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...formData,
-          submittedAt: new Date().toISOString(),
-          type: "consultation_request"
-        }),
+        body: formDataToSend,
       });
 
       setIsSubmitted(true);
