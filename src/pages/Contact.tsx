@@ -135,6 +135,8 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
+                        pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+                        title="Please enter a valid email address"
                         className="bg-secondary/50 border-border"
                       />
                     </div>
@@ -153,7 +155,7 @@ const Contact = () => {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="phone">Phone Number</Label>
+                      <Label htmlFor="phone">Phone Number *</Label>
                       <Input
                         id="phone"
                         name="phone"
@@ -161,6 +163,7 @@ const Contact = () => {
                         placeholder="(555) 123-4567"
                         value={formData.phone}
                         onChange={handleChange}
+                        required
                         className="bg-secondary/50 border-border"
                       />
                     </div>
