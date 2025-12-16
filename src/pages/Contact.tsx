@@ -26,7 +26,7 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://n-i-a.app.n8n.cloud/webhook/2008040c-9f44-4fb6-bc8a-e3d28832a99f", {
+      const response = await fetch("https://n-i-a.app.n8n.cloud/webhook-test/2008040c-9f44-4fb6-bc8a-e3d28832a99f", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
