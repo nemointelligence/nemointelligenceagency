@@ -164,6 +164,8 @@ const Contact = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         required
+                        pattern="[\d\s\-\(\)\+]+"
+                        title="Please enter a valid phone number"
                         className="bg-secondary/50 border-border"
                       />
                     </div>
