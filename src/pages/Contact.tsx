@@ -258,7 +258,7 @@ const Contact = () => {
                     <div>
                       <h3 className="font-heading font-semibold text-foreground mb-1">Phone</h3>
                       <a href="tel:+18884629523" className="text-muted-foreground hover:text-primary transition-colors">
-                        (888) 462-9523
+                        (215)383-3182
                       </a>
                     </div>
                   </div>
