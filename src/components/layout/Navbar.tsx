@@ -8,7 +8,6 @@ const navLinks = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
   { name: "Services", path: "/services" },
-  { name: "Schedule", path: "/schedule" },
   { name: "Contact", path: "/contact" },
 ];
 
@@ -23,9 +22,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="block">
             <div className="w-12 h-12 rounded-lg bg-black border-2 border-primary flex items-center justify-center overflow-hidden relative shadow-[0_0_15px_hsl(var(--primary)/0.6),0_0_30px_hsl(var(--primary)/0.4)] animate-logo-glow transition-transform duration-200 hover:scale-110">
-              <span className="text-white font-heading font-bold text-lg tracking-tight animate-logo-scale">
-                N.I.A
-              </span>
+              <span className="text-white font-heading font-bold text-lg tracking-tight animate-logo-scale">N.I.A</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/20 to-transparent animate-logo-shine" />
             </div>
           </Link>
@@ -38,9 +35,7 @@ const Navbar = () => {
                 to={link.path}
                 className={cn(
                   "text-sm font-medium transition-colors hover:text-primary relative",
-                  location.pathname === link.path
-                    ? "text-primary"
-                    : "text-muted-foreground"
+                  location.pathname === link.path ? "text-primary" : "text-muted-foreground",
                 )}
               >
                 {link.name}
@@ -59,11 +54,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-foreground p-2"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
+          <button className="md:hidden text-foreground p-2" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -79,9 +70,7 @@ const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                   className={cn(
                     "text-sm font-medium transition-colors hover:text-primary py-2",
-                    location.pathname === link.path
-                      ? "text-primary"
-                      : "text-muted-foreground"
+                    location.pathname === link.path ? "text-primary" : "text-muted-foreground",
                   )}
                 >
                   {link.name}
