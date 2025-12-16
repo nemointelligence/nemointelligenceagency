@@ -176,12 +176,13 @@ const Contact = () => {
                         id="phone"
                         name="phone"
                         type="tel"
-                        placeholder="(555) 123-4567"
+                        placeholder="1234567890"
                         value={formData.phone}
                         onChange={handleChange}
                         required
-                        pattern="[\d\s\-\(\)\+]+"
-                        title="Please enter a valid phone number"
+                        maxLength={10}
+                        pattern="^\d{10}$"
+                        title="Please enter exactly 10 digits"
                         className="bg-secondary/50 border-border"
                       />
                     </div>
