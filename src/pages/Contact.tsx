@@ -1,14 +1,14 @@
 import { Helmet } from "react-helmet-async";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+
 import { useToast } from "@/hooks/use-toast";
-import { Mail, MapPin, Phone, Send, Loader2, Calendar, Sparkles } from "lucide-react";
+import { Mail, MapPin, Phone, Send, Loader2 } from "lucide-react";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -17,7 +17,7 @@ const Contact = () => {
     name: "",
     email: "",
     businessName: "",
-    budget: "",
+    phone: "",
     message: "",
   });
 
@@ -35,7 +35,7 @@ const Contact = () => {
           name: formData.name,
           email: formData.email,
           businessName: formData.businessName,
-          budget: formData.budget,
+          phone: formData.phone,
           message: formData.message,
         }),
       });
@@ -53,7 +53,7 @@ const Contact = () => {
         name: "",
         email: "",
         businessName: "",
-        budget: "",
+        phone: "",
         message: "",
       });
     } catch (error) {
@@ -153,21 +153,16 @@ const Contact = () => {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="budget">Budget</Label>
-                      <Select
-                        value={formData.budget}
-                        onValueChange={(value) => setFormData((prev) => ({ ...prev, budget: value }))}
-                      >
-                        <SelectTrigger className="bg-secondary/50 border-border">
-                          <SelectValue placeholder="Select budget range" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="500-1000">$500 – $1,000</SelectItem>
-                          <SelectItem value="1000-3000">$1,000 – $3,000</SelectItem>
-                          <SelectItem value="3000-5000">$3,000 – $5,000</SelectItem>
-                          <SelectItem value="5000+">$5,000+</SelectItem>
-                        </SelectContent>
-                      </Select>
+                      <Label htmlFor="phone">Phone Number</Label>
+                      <Input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        placeholder="(555) 123-4567"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        className="bg-secondary/50 border-border"
+                      />
                     </div>
                   </div>
 
@@ -199,29 +194,6 @@ const Contact = () => {
                     )}
                   </Button>
 
-                  {/* Premium Consultation CTA */}
-                  {formData.budget === "5000+" && (
-                    <div className="mt-6 p-4 rounded-xl bg-primary/10 border border-primary/30 animate-fade-in">
-                      <div className="flex items-start gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
-                          <Sparkles className="w-5 h-5 text-primary" />
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="font-semibold text-foreground mb-1">Premium Client Benefit</h4>
-                          <p className="text-sm text-muted-foreground mb-3">
-                            As a premium client, you qualify for a free 30-minute consultation to discuss your project
-                            in detail.
-                          </p>
-                          <Link to="/schedule">
-                            <Button variant="outline" size="sm" className="gap-2">
-                              <Calendar className="w-4 h-4" />
-                              Schedule Free Consultation
-                            </Button>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  )}
                 </form>
               </div>
 
