@@ -6,13 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, MapPin, Phone, Send, Loader2, Calendar, Sparkles } from "lucide-react";
 
@@ -32,22 +26,19 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(
-        "https://nemointelligenceagency.app.n8n.cloud/webhook-test/2008040c-9f44-4fb6-bc8a-e3d28832a99f",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: formData.name,
-            email: formData.email,
-            businessName: formData.businessName,
-            budget: formData.budget,
-            message: formData.message,
-          }),
-        }
-      );
+      const response = await fetch("https://n-i-a.app.n8n.cloud/webhook/2008040c-9f44-4fb6-bc8a-e3d28832a99f", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          businessName: formData.businessName,
+          budget: formData.budget,
+          message: formData.message,
+        }),
+      });
 
       if (!response.ok) {
         throw new Error("Failed to send message");
@@ -77,9 +68,7 @@ const Contact = () => {
     }
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
@@ -105,12 +94,11 @@ const Contact = () => {
                 Contact Us
               </div>
               <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 animate-fade-in animation-delay-100">
-                Let's Start Your{" "}
-                <span className="gradient-text">AI Journey</span>
+                Let's Start Your <span className="gradient-text">AI Journey</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground animate-fade-in animation-delay-200">
-                Ready to transform your business with intelligent automation? We're here to help.
-                Fill out the form below and we'll be in touch within 24 hours.
+                Ready to transform your business with intelligent automation? We're here to help. Fill out the form
+                below and we'll be in touch within 24 hours.
               </p>
             </div>
           </div>
@@ -122,9 +110,7 @@ const Contact = () => {
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
               {/* Contact Form */}
               <div className="glass-card p-8 lg:p-10 animate-fade-in">
-                <h2 className="font-heading text-2xl font-semibold text-foreground mb-6">
-                  Send Us a Message
-                </h2>
+                <h2 className="font-heading text-2xl font-semibold text-foreground mb-6">Send Us a Message</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
@@ -170,9 +156,7 @@ const Contact = () => {
                       <Label htmlFor="budget">Budget</Label>
                       <Select
                         value={formData.budget}
-                        onValueChange={(value) =>
-                          setFormData((prev) => ({ ...prev, budget: value }))
-                        }
+                        onValueChange={(value) => setFormData((prev) => ({ ...prev, budget: value }))}
                       >
                         <SelectTrigger className="bg-secondary/50 border-border">
                           <SelectValue placeholder="Select budget range" />
@@ -201,13 +185,7 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button
-                    type="submit"
-                    variant="hero"
-                    size="lg"
-                    className="w-full"
-                    disabled={isSubmitting}
-                  >
+                  <Button type="submit" variant="hero" size="lg" className="w-full" disabled={isSubmitting}>
                     {isSubmitting ? (
                       <>
                         <Loader2 className="animate-spin" size={18} />
@@ -231,7 +209,8 @@ const Contact = () => {
                         <div className="flex-1">
                           <h4 className="font-semibold text-foreground mb-1">Premium Client Benefit</h4>
                           <p className="text-sm text-muted-foreground mb-3">
-                            As a premium client, you qualify for a free 30-minute consultation to discuss your project in detail.
+                            As a premium client, you qualify for a free 30-minute consultation to discuss your project
+                            in detail.
                           </p>
                           <Link to="/schedule">
                             <Button variant="outline" size="sm" className="gap-2">
@@ -249,12 +228,10 @@ const Contact = () => {
               {/* Contact Info */}
               <div className="space-y-8 animate-fade-in animation-delay-200">
                 <div>
-                  <h2 className="font-heading text-2xl font-semibold text-foreground mb-4">
-                    Get in Touch
-                  </h2>
+                  <h2 className="font-heading text-2xl font-semibold text-foreground mb-4">Get in Touch</h2>
                   <p className="text-muted-foreground">
-                    Have questions about our services? Want to discuss a potential project?
-                    We'd love to hear from you. Reach out using any of the methods below.
+                    Have questions about our services? Want to discuss a potential project? We'd love to hear from you.
+                    Reach out using any of the methods below.
                   </p>
                 </div>
 
@@ -280,10 +257,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-heading font-semibold text-foreground mb-1">Phone</h3>
-                      <a
-                        href="tel:+18884629523"
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                      >
+                      <a href="tel:+18884629523" className="text-muted-foreground hover:text-primary transition-colors">
                         (888) 462-9523
                       </a>
                     </div>
@@ -296,7 +270,8 @@ const Contact = () => {
                     <div>
                       <h3 className="font-heading font-semibold text-foreground mb-1">Location</h3>
                       <p className="text-muted-foreground">
-                        Remote-first company<br />
+                        Remote-first company
+                        <br />
                         Serving clients worldwide
                       </p>
                     </div>
@@ -305,9 +280,7 @@ const Contact = () => {
 
                 {/* FAQ Preview */}
                 <div className="glass-card p-6">
-                  <h3 className="font-heading font-semibold text-foreground mb-4">
-                    What happens after I submit?
-                  </h3>
+                  <h3 className="font-heading font-semibold text-foreground mb-4">What happens after I submit?</h3>
                   <ul className="space-y-3 text-sm text-muted-foreground">
                     <li className="flex items-start gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
