@@ -68,10 +68,20 @@ const Contact = () => {
     }
   };
 
+  // Sanitize input to remove potentially malicious content
+  const sanitizeInput = (value: string): string => {
+    return value
+      .replace(/<[^>]*>/g, "") // Remove HTML tags
+      .replace(/javascript:/gi, "") // Remove javascript: protocol
+      .replace(/on\w+=/gi, "") // Remove event handlers
+      .replace(/&lt;|&gt;|&amp;|&quot;|&#/gi, ""); // Remove HTML entities
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const sanitizedValue = sanitizeInput(e.target.value);
     setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value,
+      [e.target.name]: sanitizedValue,
     }));
   };
 
@@ -122,6 +132,9 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
+                        maxLength={100}
+                        pattern="^[a-zA-Z\s\-'\.]+$"
+                        title="Name can only contain letters, spaces, hyphens, apostrophes, and periods"
                         className="bg-secondary/50 border-border"
                       />
                     </div>
@@ -151,6 +164,9 @@ const Contact = () => {
                         placeholder="Your company"
                         value={formData.businessName}
                         onChange={handleChange}
+                        maxLength={150}
+                        pattern="^[a-zA-Z0-9\s\-'\.&,]+$"
+                        title="Business name can only contain letters, numbers, spaces, and common punctuation"
                         className="bg-secondary/50 border-border"
                       />
                     </div>
@@ -180,6 +196,7 @@ const Contact = () => {
                       value={formData.message}
                       onChange={handleChange}
                       required
+                      maxLength={2000}
                       rows={5}
                       className="bg-secondary/50 border-border resize-none"
                     />
